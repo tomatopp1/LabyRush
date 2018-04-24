@@ -7,9 +7,9 @@ public class deplacement_script : MonoBehaviour {
     public float speed;
     public int seconde;
     public int nbBoost;
+    public string dep;
 
     private int boost;
-    private string dep;
     private float timeBoost;
     private Rigidbody rb;
     private bool pause;
