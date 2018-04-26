@@ -11,9 +11,10 @@ public class ColorPerPlayerApply : PunBehaviour
 
     // Cached, so we can apply color changes
     private Renderer rendererComponent;
+    private TrailRenderer trailRendererComponent;
 
-	// we need to reach the PlayerRoomindexing Component. So for safe initialization, we avoid having to mess with script execution order
-	bool isInitialized;
+    // we need to reach the PlayerRoomindexing Component. So for safe initialization, we avoid having to mess with script execution order
+    bool isInitialized;
 	
 	void OnEnable()
 	{
@@ -68,6 +69,7 @@ public class ColorPerPlayerApply : PunBehaviour
         }
 
         this.rendererComponent = GetComponent<Renderer>();
+        this.trailRendererComponent = GetComponent<TrailRenderer>();
     }
 
 
@@ -92,6 +94,10 @@ public class ColorPerPlayerApply : PunBehaviour
         {
             this.rendererComponent.material.color = colorPickerCache.Colors[_index];
             this.rendererComponent.material.SetColor("_EmissionColor", colorPickerCache.Colors[_index]);
+
+            this.trailRendererComponent.material.color = colorPickerCache.Colors[_index];
+            this.trailRendererComponent.material.SetColor("_EmissionColor", colorPickerCache.Colors[_index]);
+
         }
 
     }
