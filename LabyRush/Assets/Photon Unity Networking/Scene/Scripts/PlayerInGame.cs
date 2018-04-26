@@ -25,6 +25,9 @@ public class PlayerInGame : Photon.MonoBehaviour
         GameObject player = PhotonNetwork.Instantiate(this.playerPrefab.name, transform.position, Quaternion.identity, 0);
         //camera = GameObject.FindWithTag("MainCamera");
         //camera.transform.parent = player.transform;
+
+        //int _index = PhotonNetwork.player.GetRoomIndex();
+        //Debug.Log("index : "+_index);
     }
 
     public void OnGUI()
