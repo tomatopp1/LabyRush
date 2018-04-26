@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4798953263036634}
   - component: {fileID: 65340762796240658}
   - component: {fileID: 114284613804612646}
+  - component: {fileID: 114672230825889862}
   m_Layer: 0
   m_Name: User_wall
   m_TagString: Untagged
@@ -137,3 +138,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life_Time: 10
+--- !u!114 &114672230825889862
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1109309563091326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 0
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 0}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 0
+  instantiationId: -1
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
