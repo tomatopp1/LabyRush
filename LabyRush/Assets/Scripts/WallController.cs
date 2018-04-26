@@ -211,7 +211,7 @@ public class WallController : MonoBehaviour {
 						wallBoolArray[0] =0;*/
 
 
-                    if (WallList[Z][i][l][0] == 1 || (i == 0 && (Z == 0 || Z == 1 | Z == 2)))                                                //Nicolas changer le type de mur
+                    if (WallList[Z][i][l][0] == 1 && !(i == 0 && (Z == 0 || Z == 1 || Z == 2)))                                                //Nicolas changer le type de mur
                     {
                         wallArray[init] = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
@@ -251,7 +251,7 @@ public class WallController : MonoBehaviour {
 						init++;
 					}*/
 
-                    if (WallList[Z][i][l][1] == 1 || (l == 0 && (Z == 0 || Z == 3 | Z == 6)))
+                    if (WallList[Z][i][l][1] == 1)
                     {
                         wallArray[init] = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
@@ -274,15 +274,5 @@ public class WallController : MonoBehaviour {
             }
 
         }
-        GameObject backWall = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        backWall.transform.position = new Vector3((0), 5f, (135f)) / 10;
-        backWall.transform.localScale = new Vector3(27, 1, 0.1f);
-        backWall.transform.SetParent(gameObject.transform);
-
-        GameObject rightWall = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        rightWall.transform.position = new Vector3((-135f), 5f, (0)) / 10;
-        rightWall.transform.localScale = new Vector3(27, 1, 0.1f);
-        rightWall.transform.Rotate(new Vector3(0f, 90f, 0f));
-        rightWall.transform.SetParent(gameObject.transform);
     }
 }
