@@ -13,14 +13,20 @@ public class deplacement_script : MonoBehaviour {
     private float timeBoost;
     private Rigidbody rb;
     private bool pause;
-
-
+    private PhotonView Pv;
+    private deplacement_script ds;
+    private Use_Item Ui;
     private void Start()
     {
+        Pv = gameObject.GetComponent<PhotonView>();
+        ds = gameObject.GetComponent<deplacement_script>();
+        Ui = gameObject.GetComponent<Use_Item>();
         boost = 1;
         timeBoost = 0;
         pause = true;
         //rb = GetComponent<Rigidbody>();
+        ds.enabled = Pv.isMine;
+        Ui.enabled = Pv.isMine;
 
     }
 

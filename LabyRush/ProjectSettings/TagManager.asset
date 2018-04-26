@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - sol
+  - jump
+  - wall
+  - bomb
   layers:
   - Default
   - TransparentFX
@@ -21,8 +24,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Characters
+  - Wall
   - 
   - 
   - 

@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4796647360820306}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: item_user
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,8 @@ GameObject:
   - component: {fileID: 54713150489171068}
   - component: {fileID: 114368064367037244}
   - component: {fileID: 114276206288240350}
-  m_Layer: 0
+  - component: {fileID: 114452593802521978}
+  m_Layer: 15
   m_Name: Cube
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -193,7 +194,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1578153836406392}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13c4159c5850b1a498351cd423b910b3, type: 3}
   m_Name: 
@@ -212,14 +213,16 @@ MonoBehaviour:
   arrItem:
   - {fileID: 1684523410030642, guid: a82ce586c83e7e341a0ab2d7c4f78a0f, type: 2}
   - {fileID: 1109309563091326, guid: f14df7e84f19cdb4d9230a7bc44221bc, type: 2}
-  distJump: 5
+  fleche: {fileID: 1897634131942066, guid: 4c2301265dfcf4c46838f2d541b7ce65, type: 2}
+  distJump: 1
+  distWall: 0.5
 --- !u!114 &114368064367037244
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1578153836406392}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f04aa96c3db9b22499df04b7c798e649, type: 3}
   m_Name: 
@@ -234,6 +237,17 @@ MonoBehaviour:
   snapMaxSpeed: 720
   clampHeadPositionScreenSpace: 0.75
   lockCameraTimeout: 0.2
+--- !u!114 &114452593802521978
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1578153836406392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e51e868ccae1b40a892f9b5bcbd054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114599015318150064
 MonoBehaviour:
   m_ObjectHideFlags: 1
