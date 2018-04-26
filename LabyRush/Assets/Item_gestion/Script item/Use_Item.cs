@@ -22,9 +22,9 @@ public class Use_Item : MonoBehaviour {
         {
                         
             if (item_tag.tag.Contains("bomb"))
-                GameObject.Instantiate(arrItem[0], gameObject.transform.position, Quaternion.identity);
+                PhotonNetwork.Instantiate(arrItem[0].name, gameObject.transform.position, Quaternion.identity,0);
             if (item_tag.tag.Contains("wall"))
-                GameObject.Instantiate(arrItem[1], gameObject.transform.position, Quaternion.identity);
+                PhotonNetwork.Instantiate(arrItem[1].name, gameObject.transform.position, Quaternion.identity,0);
 
             if (item_tag.tag.Contains("jump"))
             {
