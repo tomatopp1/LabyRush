@@ -6,7 +6,7 @@ public class user_bomb_script : MonoBehaviour {
     
     //public
     public int life_Time; //durée de vie de la bombe
-    
+    public GameObject bomb_effect;
     //Privée
     private float realTime; //temps reel de la bombe
     private float freq; //la frequence de clignotement
@@ -71,7 +71,8 @@ public class user_bomb_script : MonoBehaviour {
 
     private void OnTriggerEnter(Collider c)
     {
-       
+
+        GameObject.Instantiate(bomb_effect, gameObject.transform.position, Quaternion.identity);
         if (c.gameObject.tag != "Player" && c.gameObject.tag != "sol")
         {
             Destroy(c.gameObject);

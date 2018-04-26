@@ -16,9 +16,9 @@ public class WallController : MonoBehaviour {
 
     private List<List<List<List<int>>>> WallList;
 
-    private System.Random Generator = new System.Random();
+    private System.Random Generator = new System.Random(42);
 
-
+    
     // Use this for initialization
     void Start()
     {

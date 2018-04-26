@@ -102,6 +102,9 @@ GameObject:
   - component: {fileID: 27}
   - component: {fileID: 29}
   - component: {fileID: 31}
+  - component: {fileID: 9}
+  - component: {fileID: 11}
+  - component: {fileID: 12}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: MainCamera
@@ -127,6 +130,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &9
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 7}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98c1944b2ee8b5498d414f8807bce25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Colors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0.8676472, a: 1}
+  - {r: 1, g: 0.48529413, b: 0, a: 1}
+  - {r: 0.98529434, g: 0, b: 1, a: 1}
+  - {r: 0, g: 0.50689656, b: 0, a: 1}
+  ShowColorLabel: 1
+  ColorLabelArea:
+    serializedVersion: 2
+    x: 0
+    y: 50
+    width: 100
+    height: 200
+  img: {fileID: 2800000, guid: 44ba252de7e631142926f176364fe7be, type: 3}
+  MyColor: {r: 0.5827586, g: 0.5827586, b: 0.5827586, a: 1}
 --- !u!1 &10
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,6 +178,95 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 7}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a097d1ab84b464395a16e9a7bb35b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &12
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 7}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d0766c2e84d350429c37602dc288e3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customStyle:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
 --- !u!4 &13
 Transform:
   m_ObjectHideFlags: 0
@@ -389,7 +510,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4664927731895816, guid: 1247f5c00fc45d04da471d68bc238b60, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.6206503
+      value: 0.489
       objectReference: {fileID: 0}
     - target: {fileID: 4664927731895816, guid: 1247f5c00fc45d04da471d68bc238b60, type: 2}
       propertyPath: m_LocalPosition.y
@@ -397,7 +518,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4664927731895816, guid: 1247f5c00fc45d04da471d68bc238b60, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 1.1646624
+      value: -1.8
       objectReference: {fileID: 0}
     - target: {fileID: 4664927731895816, guid: 1247f5c00fc45d04da471d68bc238b60, type: 2}
       propertyPath: m_LocalRotation.x
@@ -436,7 +557,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4865428405702162, guid: 79e04fd242422554a9f8881f10fc52c0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.2241068
+      value: -0.36
       objectReference: {fileID: 0}
     - target: {fileID: 4865428405702162, guid: 79e04fd242422554a9f8881f10fc52c0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -444,7 +565,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4865428405702162, guid: 79e04fd242422554a9f8881f10fc52c0, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0.4876051
+      value: -1.88
       objectReference: {fileID: 0}
     - target: {fileID: 4865428405702162, guid: 79e04fd242422554a9f8881f10fc52c0, type: 2}
       propertyPath: m_LocalRotation.x
@@ -684,7 +805,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4593401612717684, guid: f165d4faf104f2e4a88d4e72c9711435, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.36267567
+      value: -0.19
       objectReference: {fileID: 0}
     - target: {fileID: 4593401612717684, guid: f165d4faf104f2e4a88d4e72c9711435, type: 2}
       propertyPath: m_LocalPosition.y
