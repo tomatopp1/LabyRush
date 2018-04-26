@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 54713150489171068}
   - component: {fileID: 114368064367037244}
   - component: {fileID: 114276206288240350}
+  - component: {fileID: 114452593802521978}
   m_Layer: 15
   m_Name: Cube
   m_TagString: Player
@@ -232,6 +233,17 @@ MonoBehaviour:
   snapMaxSpeed: 720
   clampHeadPositionScreenSpace: 0.75
   lockCameraTimeout: 0.2
+--- !u!114 &114452593802521978
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1578153836406392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e51e868ccae1b40a892f9b5bcbd054, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114599015318150064
 MonoBehaviour:
   m_ObjectHideFlags: 1
