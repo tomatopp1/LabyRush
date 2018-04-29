@@ -29,7 +29,7 @@ public class DisplayStockItem : MonoBehaviour
 
     // display in bag item
     void OnGUI() {
-        GUILayout.BeginArea(new Rect((Screen.width/2), (Screen.height-50), 50, 50));
+        GUILayout.BeginArea(new Rect((Screen.width/2), (Screen.height-75), 75, 75));
         GUILayout.Box(item);
         GUILayout.EndArea();
     }
