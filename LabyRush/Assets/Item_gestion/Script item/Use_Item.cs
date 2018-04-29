@@ -18,7 +18,7 @@ public class Use_Item : MonoBehaviour {
 	void Start ()
     {
         item_tag = gameObject.transform.GetChild(0);
-        fleche = GameObject.Instantiate(fleche, gameObject.transform.position, Quaternion.identity);
+        fleche = GameObject.Instantiate(fleche, new Vector3 (0,0,-1000), Quaternion.identity);
     }
 	
 	// Update is called once per frame
@@ -74,7 +74,8 @@ public class Use_Item : MonoBehaviour {
                     transform.Translate(new Vector3(0, 0, distJump));
                 if (dep == "down")
                     transform.Translate(new Vector3(0, 0, -distJump));
-                Destroy(fleche);
+
+                fleche.transform.position = new Vector3(0, 0, -1000);
             }
             item_tag.tag = "Untagged";
             
