@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIController : MonoBehaviour
+public class DisplayTimer : MonoBehaviour
 {
 
     public GUIStyle customStyle;
