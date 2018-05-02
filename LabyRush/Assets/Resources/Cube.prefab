@@ -182,7 +182,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 5
+  m_Time: 2
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 0.05
@@ -428,8 +428,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 0}
-  distance: 2
-  height: 5
+  distance: 0.01
+  height: 7
   angularSmoothLag: 0.3
   angularMaxSpeed: 15
   heightSmoothLag: 0.3
