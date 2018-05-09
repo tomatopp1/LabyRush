@@ -15,13 +15,25 @@ public class WallController : MonoBehaviour {
     private int[] wallHoleArray = new int[12];
 
     private List<List<List<List<int>>>> WallList;
+    private int seed;
+    private System.Random Generator; //= new System.Random(42);
 
-    private System.Random Generator = new System.Random(42);
-
-    
+    //Quand la seed change elle est synchronisé à l'ensemble des clients
+    void OnPhotonCustomRoomPropertiesChanged(Hashtable propertiesThatChanged)
+    {
+        seed = (int)propertiesThatChanged["Seed"];
+    }
     // Use this for initialization
     void Start()
     {
+        //Le Master de la room sa seed
+        if (PhotonNetwork.isNonMasterClientInRoom != true) 
+        {
+            ExitGames.Client.Photon.Hashtable ht = new ExitGames.Client.Photon.Hashtable() { { "Seed", (Random.Range(0,2000)) } };
+
+            PhotonNetwork.room.SetCustomProperties(ht);
+        }
+        Generator = new System.Random((int)PhotonNetwork.room.CustomProperties["Seed"]); //Set la seed au random
         cubeScale = new Vector3(10, 10, 1);
         wallArray = new GameObject[2916];
         wallBoolArray[0] = 0;
