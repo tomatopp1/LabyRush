@@ -8,6 +8,8 @@ TagManager:
   - jump
   - wall
   - bomb
+  - FxTemporaire
+  - border
   layers:
   - Default
   - TransparentFX

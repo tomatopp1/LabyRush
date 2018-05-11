@@ -14,6 +14,7 @@ public class Use_Item : MonoBehaviour {
     private string dep;
     private Vector3 placeWall;
     private Transform item_tag;
+    private bool nojump;
 	// Use this for initialization
 	void Start ()
     {
@@ -25,24 +26,44 @@ public class Use_Item : MonoBehaviour {
 	void Update ()
     {
         dep = gameObject.GetComponent<deplacement_script>().dep;
+        RaycastHit hit;
+        nojump = true;
+        
 
         if (item_tag.tag.Contains("jump"))
         {
             
             //fleche.transform.position = gameObject.transform.position;
             if (dep == "left")
+            {
                 fleche.transform.position = new Vector3(gameObject.transform.position.x - distJump, transform.position.y, transform.position.z);
+                if (Physics.Raycast(transform.position, Vector3.left, out hit, distJump) && hit.transform.tag == "border")
+                    nojump = false;
+            }
             if (dep == "right")
+            {
                 fleche.transform.position = new Vector3(gameObject.transform.position.x + distJump, transform.position.y, transform.position.z);
+                if (Physics.Raycast(transform.position, Vector3.right, out hit, distJump) && hit.transform.tag == "border")
+                    nojump = false;
+            }
             if (dep == "up")
+            {
                 fleche.transform.position = new Vector3(gameObject.transform.position.x, transform.position.y, transform.position.z + distJump);
+                if (Physics.Raycast(transform.position, Vector3.forward, out hit, distJump) && hit.transform.tag == "border")
+                    nojump = false;
+            }    
             if (dep == "down")
+            {
                 fleche.transform.position = new Vector3(gameObject.transform.position.x, transform.position.y, transform.position.z - distJump);
+                if (Physics.Raycast(transform.position, -Vector3.forward, out hit, distJump) && hit.transform.tag == "border")
+                    nojump = false;
+            }
+                
         }
         
         
 
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && nojump)
         {
             
 
@@ -77,8 +98,8 @@ public class Use_Item : MonoBehaviour {
 
                 fleche.transform.position = new Vector3(0, 0, -1000);
             }
-            item_tag.tag = "Untagged";
-            
+
+            item_tag.tag = "Untagged"; 
         }
 	}
 }
