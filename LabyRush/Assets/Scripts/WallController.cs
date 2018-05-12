@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class WallController : MonoBehaviour {
 
-    public Vector3 cubeScale;
+    public Vector3 cubeScale; //x:1 y:1 z:0.1
+
+    public int nbItem; //nombre d'item à faire pop au début
+    public GameObject[] itemArray; //List des items a faire pop
+    public GameObject spawnZone; //sol
+
+
     private GameObject[] wallArray;
 
     private int[] wallBoolArray = new int[4];
@@ -33,7 +39,8 @@ public class WallController : MonoBehaviour {
 
             PhotonNetwork.room.SetCustomProperties(ht);
         }
-        Generator = new System.Random((int)PhotonNetwork.room.CustomProperties["Seed"]); //Set la seed au random
+        seed = (int)PhotonNetwork.room.CustomProperties["Seed"]; //recupère la seed sur le réseau
+        Generator = new System.Random(seed); //Set la seed au random
         cubeScale = new Vector3(10, 10, 1);
         wallArray = new GameObject[2916];
         wallBoolArray[0] = 0;
@@ -49,6 +56,9 @@ public class WallController : MonoBehaviour {
         }
 
         initWalls();
+
+        if (PhotonNetwork.isNonMasterClientInRoom != true)
+            InitAllItem();
     }
 
     // Update is called once per frame
@@ -285,6 +295,27 @@ public class WallController : MonoBehaviour {
                 }
             }
 
+        }
+    }
+
+    public void PopItem()
+    {
+        int index;
+
+        Vector3 minSpawn = spawnZone.GetComponent<MeshCollider>().bounds.min; //renvoi les valeurs min du collider
+        Vector3 maxSpawn = spawnZone.GetComponent<MeshCollider>().bounds.max; //renvoi les valeurs max du collider
+        
+        index = Generator.Next(0, itemArray.Length);
+
+        PhotonNetwork.Instantiate(itemArray[index].name, new Vector3(Generator.Next( (int)minSpawn.x, (int)maxSpawn.x),0, Generator.Next((int)minSpawn.z, (int)maxSpawn.z)), Quaternion.identity,0);
+
+    }
+
+    public void InitAllItem()
+    {
+        for(int i = 0; i<nbItem; i++)
+        {
+            PopItem();
         }
     }
 }
