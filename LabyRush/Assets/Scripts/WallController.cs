@@ -23,6 +23,7 @@ public class WallController : MonoBehaviour {
     private List<List<List<List<int>>>> WallList;
     private int seed;
     private System.Random Generator; //= new System.Random(42);
+    private System.Random RandItem;
 
     //Quand la seed change elle est synchronisé à l'ensemble des clients
     void OnPhotonCustomRoomPropertiesChanged(Hashtable propertiesThatChanged)
@@ -41,6 +42,7 @@ public class WallController : MonoBehaviour {
         }
         seed = (int)PhotonNetwork.room.CustomProperties["Seed"]; //recupère la seed sur le réseau
         Generator = new System.Random(seed); //Set la seed au random
+        RandItem = new System.Random();
         cubeScale = new Vector3(10, 10, 1);
         wallArray = new GameObject[2916];
         wallBoolArray[0] = 0;
@@ -305,9 +307,9 @@ public class WallController : MonoBehaviour {
         Vector3 minSpawn = spawnZone.GetComponent<MeshCollider>().bounds.min; //renvoi les valeurs min du collider
         Vector3 maxSpawn = spawnZone.GetComponent<MeshCollider>().bounds.max; //renvoi les valeurs max du collider
         
-        index = Generator.Next(0, itemArray.Length);
+        index = RandItem.Next(0, itemArray.Length);
 
-        PhotonNetwork.Instantiate(itemArray[index].name, new Vector3(Generator.Next( (int)minSpawn.x, (int)maxSpawn.x),0, Generator.Next((int)minSpawn.z, (int)maxSpawn.z)), Quaternion.identity,0);
+        PhotonNetwork.Instantiate(itemArray[index].name, new Vector3(RandItem.Next( (int)minSpawn.x, (int)maxSpawn.x),0, Generator.Next((int)minSpawn.z, (int)maxSpawn.z)), Quaternion.identity,0);
 
     }
 
