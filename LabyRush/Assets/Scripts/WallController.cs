@@ -36,6 +36,7 @@ public class WallController : MonoBehaviour {
         //Le Master de la room sa seed
         if (PhotonNetwork.isNonMasterClientInRoom != true) 
         {
+            //Ajout par NICOLAS FINOUX
             ExitGames.Client.Photon.Hashtable ht = new ExitGames.Client.Photon.Hashtable() { { "Seed", (Random.Range(0,2000)) } };
 
             PhotonNetwork.room.SetCustomProperties(ht);
@@ -300,6 +301,7 @@ public class WallController : MonoBehaviour {
         }
     }
 
+    //Partie ajouté par NICOLAS FINOUX
     public void PopItem()
     {
         int index;
