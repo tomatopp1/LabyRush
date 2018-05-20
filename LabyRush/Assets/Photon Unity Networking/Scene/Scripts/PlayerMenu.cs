@@ -52,6 +52,7 @@ public class PlayerMenu : MonoBehaviour
             lum.transform.localPosition = new Vector3(0, 60, 51);
             display_menu = true;
         }
+        if(Input.GetKey(KeyCode.Escape)) display_menu = true;
     }
 
     public string ErrorDialog

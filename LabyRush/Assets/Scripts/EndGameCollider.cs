@@ -63,6 +63,7 @@ public class EndGameCollider : MonoBehaviour {
     {
         tempName = c.gameObject.GetComponent<PhotonView>().owner.NickName;
         if (c.gameObject.GetComponent<PhotonView>().isMine) exit_door.SetActive(true);
+        c.gameObject.transform.GetChild(0).tag = "Untagged";
         list[classement] = tempName + list[classement];
         Debug.Log(list[classement]);
         display.Add(list[classement]);
