@@ -13,6 +13,9 @@ public class PlayerMenu : MonoBehaviour
 {
     public GUISkin Skin;
     public Vector2 WidthAndHeight = new Vector2(600, 400);
+
+    private int MaxPlay;
+
     private string roomName = "myRoom";
 
     private Vector2 scrollPos = Vector2.zero;
@@ -82,7 +85,7 @@ public class PlayerMenu : MonoBehaviour
             if (this.connectFailed)
             {
                 GUILayout.Label("Connection failed. Check setup and use Setup Wizard to fix configuration.");
-                GUILayout.Label(String.Format("Server: {0}", new object[] {PhotonNetwork.ServerAddress}));
+                GUILayout.Label(String.Format("Server: {0}", new object[] { PhotonNetwork.ServerAddress }));
                 GUILayout.Label("AppId: " + PhotonNetwork.PhotonServerSettings.AppID.Substring(0, 8) + "****"); // only show/log first 8 characters. never log the full AppId.
 
                 if (GUILayout.Button("Try Again", GUILayout.Width(100)))
@@ -95,7 +98,7 @@ public class PlayerMenu : MonoBehaviour
             return;
         }
 
-        Rect content = new Rect((Screen.width - this.WidthAndHeight.x)/2, (Screen.height - this.WidthAndHeight.y)/2, this.WidthAndHeight.x, this.WidthAndHeight.y);
+        Rect content = new Rect((Screen.width - this.WidthAndHeight.x) / 2, (Screen.height - this.WidthAndHeight.y) / 2, this.WidthAndHeight.x, this.WidthAndHeight.y);
         GUI.Box(content, "Join or Create Room");
         GUILayout.BeginArea(content);
 
@@ -122,7 +125,7 @@ public class PlayerMenu : MonoBehaviour
 
         if (GUILayout.Button("Create Room", GUILayout.Width(150)))
         {
-            PhotonNetwork.CreateRoom(this.roomName, new RoomOptions() { MaxPlayers = 10 }, null);
+            PhotonNetwork.CreateRoom(this.roomName, new RoomOptions() { MaxPlayers = (byte)(this.MaxPlay+1) }, null);
         }
 
         GUILayout.EndHorizontal();
@@ -191,6 +194,16 @@ public class PlayerMenu : MonoBehaviour
 
             GUILayout.EndScrollView();
         }
+        
+        // Options: nombre de joueur
+        GUILayout.BeginHorizontal();
+        GUILayout.Label("Options", GUILayout.Width(100));
+        GUILayout.Space(15);
+        GUILayout.Label("number of player:", GUILayout.Width(100));
+        
+        MaxPlay = GUILayout.SelectionGrid(MaxPlay, new string[] { "1", "2", "3", "4" }, 4);
+        Debug.Log(MaxPlay);
+        GUILayout.EndHorizontal();
 
         GUILayout.EndArea();
     }
