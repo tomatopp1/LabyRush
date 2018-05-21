@@ -76,7 +76,7 @@ public class Use_Item : MonoBehaviour {
             }
                 
 
-            if (item_tag.tag.Contains("wall") )
+            if (item_tag.tag.Contains("wall")&& dep != "stop" )
             {
                 if (dep == "left")
                     placeWall = new Vector3(gameObject.transform.position.x + distWall, gameObject.transform.position.y, gameObject.transform.position.z);
