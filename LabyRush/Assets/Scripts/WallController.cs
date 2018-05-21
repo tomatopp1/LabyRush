@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class WallController : MonoBehaviour {
 
-    public Vector3 cubeScale;
+    public Vector3 cubeScale; //x:1 y:1 z:0.1
+
+    public int nbItem; //nombre d'item à faire pop au début
+    public GameObject[] itemArray; //List des items a faire pop
+    public GameObject spawnZone; //sol
+
+
     private GameObject[] wallArray;
 
     private int[] wallBoolArray = new int[4];
@@ -15,13 +21,29 @@ public class WallController : MonoBehaviour {
     private int[] wallHoleArray = new int[12];
 
     private List<List<List<List<int>>>> WallList;
+    private int seed;
+    private System.Random Generator; //= new System.Random(42);
+    private System.Random RandItem;
 
-    private System.Random Generator = new System.Random(42);
-
-    
+    //Quand la seed change elle est synchronisé à l'ensemble des clients
+    void OnPhotonCustomRoomPropertiesChanged(Hashtable propertiesThatChanged)
+    {
+        seed = (int)propertiesThatChanged["Seed"];
+    }
     // Use this for initialization
     void Start()
     {
+        //Le Master de la room sa seed
+        if (PhotonNetwork.isNonMasterClientInRoom != true) 
+        {
+            //Ajout par NICOLAS FINOUX
+            ExitGames.Client.Photon.Hashtable ht = new ExitGames.Client.Photon.Hashtable() { { "Seed", (Random.Range(0,2000)) } };
+
+            PhotonNetwork.room.SetCustomProperties(ht);
+        }
+        seed = (int)PhotonNetwork.room.CustomProperties["Seed"]; //recupère la seed sur le réseau
+        Generator = new System.Random(seed); //Set la seed au random
+        RandItem = new System.Random();
         cubeScale = new Vector3(10, 10, 1);
         wallArray = new GameObject[2916];
         wallBoolArray[0] = 0;
@@ -37,6 +59,9 @@ public class WallController : MonoBehaviour {
         }
 
         initWalls();
+
+        if (PhotonNetwork.isNonMasterClientInRoom != true)
+            InitAllItem();
     }
 
     // Update is called once per frame
@@ -273,6 +298,28 @@ public class WallController : MonoBehaviour {
                 }
             }
 
+        }
+    }
+
+    //Partie ajouté par NICOLAS FINOUX
+    public void PopItem()
+    {
+        int index;
+
+        Vector3 minSpawn = spawnZone.GetComponent<MeshCollider>().bounds.min; //renvoi les valeurs min du collider
+        Vector3 maxSpawn = spawnZone.GetComponent<MeshCollider>().bounds.max; //renvoi les valeurs max du collider
+        
+        index = RandItem.Next(0, itemArray.Length);
+
+        PhotonNetwork.Instantiate(itemArray[index].name, new Vector3(RandItem.Next( (int)minSpawn.x, (int)maxSpawn.x),0, Generator.Next((int)minSpawn.z, (int)maxSpawn.z)), Quaternion.identity,0);
+
+    }
+
+    public void InitAllItem()
+    {
+        for(int i = 0; i<nbItem; i++)
+        {
+            PopItem();
         }
     }
 }
