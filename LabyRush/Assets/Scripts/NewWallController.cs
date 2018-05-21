@@ -49,7 +49,7 @@ public class NewWallController : MonoBehaviour
         CreateWalls(WallList);
 
         if (PhotonNetwork.isNonMasterClientInRoom != true)
-            InitAllItem();
+            PopIni();
 
     }
 
@@ -185,14 +185,14 @@ public class NewWallController : MonoBehaviour
 
         PhotonNetwork.Instantiate(itemArray[index].name, new Vector3(RandItem.Next((int)minSpawn.x, (int)maxSpawn.x), 0, Generator.Next((int)minSpawn.z, (int)maxSpawn.z)), Quaternion.identity, 0);
     }
-    public void InitAllItem()
+    /*public void InitAllItem()
     {
 
         for (int i = 0; i < nbItem; i++)
         {
             PopItem();
         }
-    }
+    }*/
 
     //Version 2
     public Vector3 genCoord(string pos)
@@ -204,11 +204,11 @@ public class NewWallController : MonoBehaviour
         //valeur en x
         int xmin = (int)minSpawn.x;
         int xmax = (int)maxSpawn.x;
-        int xmid = (int)((xmax - xmin)/2);
+        int xmid = (int)(xmin+(xmax - xmin)/2);
         //valeur en z
         int zmin = (int)minSpawn.z;
         int zmax = (int)maxSpawn.z;
-        int zmid = (int)((zmax - zmin)/2);
+        int zmid = (int)(zmin+(zmax - zmin)/2);
 
         if (pos == "BG") coord = new Vector3(RandItem.Next((int)xmin, (int)xmid), 0, Generator.Next((int)zmin, (int)zmid));
         else if (pos == "HG") coord = new Vector3(RandItem.Next((int)xmid, (int)xmax), 0, Generator.Next((int)zmin, (int)zmid));
@@ -219,6 +219,8 @@ public class NewWallController : MonoBehaviour
         return coord;
     }
 
+    //Script qui répartit de façon équitable les items sur le terrain
+    //nbItem doit être un multiple de 4
     public void PopIni()
     {
         
