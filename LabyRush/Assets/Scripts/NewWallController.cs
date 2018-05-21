@@ -151,7 +151,7 @@ public class NewWallController : MonoBehaviour
 
                 wallArray[init] = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-                wallArray[init].transform.position = new Vector3(130f - (list[0] + list[2])* 5, 4f, 134.5f - (list[1] + list[3]) * 5) / 10; //placement du mur dans l'espace
+                wallArray[init].transform.position = new Vector3(135f - (list[0] + list[2])* 5, 4f, 136.5f - (list[1] + list[3]) * 5) / 10; //placement du mur dans l'espace
                 wallArray[init].transform.localScale = cubeScale / 10;
                 wallArray[init].transform.SetParent(gameObject.transform);
 
