@@ -541,7 +541,7 @@ TextMesh:
   m_GameObject: {fileID: 779362696}
   m_Text: "Level Designer:\t\t\t\t\t\t\t\t\t\t Jules Radisson\n\nGame Designer:\t
     \t\t\t\t\t\t\t\tNicolas Finoux\n\nUI Designer:\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t Margot
-    Puyjalont\n\nNetwork integrator: Nicolas Taupin\n"
+    Puyjalon\n\nNetwork integrator: Nicolas Taupin\n"
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1

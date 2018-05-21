@@ -12,7 +12,7 @@ public class NewWallController : MonoBehaviour
 
     private System.Random Generator;// = new System.Random(42);
 
-    //Ajout Nicolas
+    //Ajout Nicolas Finoux
     public int nbItem; //nombre d'item à faire pop au début
     public GameObject[] itemArray; //List des items a faire pop
     public GameObject spawnZone; //sol
@@ -172,7 +172,7 @@ public class NewWallController : MonoBehaviour
         }
     }
 
-    //Partie ajouté par NICOLAS FINOUX
+    //Partie ajouté par NICOLAS FINOUX//////////////////////////////////////////////////////////////////////////////////////
     //Génération des items
     public void PopItem()
     {
@@ -195,6 +195,8 @@ public class NewWallController : MonoBehaviour
     }*/
 
     //Version 2
+    //Fonction qui va renvoyer les cordonnées aléatoire sur la zone de jeu selon l'argument donné
+    //BG(bas gauche) BD(Bas Droit) HG(haut gauche) HD(Haut droit)
     public Vector3 genCoord(string pos)
     {
         Vector3 coord = new Vector3(0,0,0);
@@ -236,6 +238,7 @@ public class NewWallController : MonoBehaviour
             if (i >= 3 * sep && i < 4 * sep) PhotonNetwork.Instantiate(itemArray[index].name, genCoord("HD"), Quaternion.identity, 0);
         }
     }
+    /////////////////////////////////////////////
 
 }
 

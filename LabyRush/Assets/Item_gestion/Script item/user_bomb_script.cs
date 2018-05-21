@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Script à appliquer sur la bombe qui sera instantié pour exploser
+//Par NICOLAS FINOUX
 public class user_bomb_script : MonoBehaviour {
     
     //public
@@ -68,7 +69,9 @@ public class user_bomb_script : MonoBehaviour {
         
     }
     
-
+    //Quand la bombe arrive à la fin du compte à rebour
+    //on fait apparaitre le fx d'explosion détruit tout les objets comprit dans le collider sauf le sol et le joueur
+    //et détruit la bombe
     private void OnTriggerEnter(Collider c)
     {
 

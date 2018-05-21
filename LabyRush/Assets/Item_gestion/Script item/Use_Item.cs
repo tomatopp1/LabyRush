@@ -23,13 +23,12 @@ public class Use_Item : MonoBehaviour {
     {
         item_tag = gameObject.transform.GetChild(0);//on récupère l'item fils du player contenant le tag de l'item
         fleche = GameObject.Instantiate(fleche, new Vector3 (0,0,-1000), Quaternion.identity);//On instantie la fleche loin.
-        fleche.GetComponent<ParticleSystem>().startColor = gameObject.GetComponent<Light>().color;//on prend la même couleur que le joueur
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        fleche.GetComponent<ParticleSystem>().startColor = gameObject.GetComponent<Light>().color;//on prend la même couleur que le joueur
+        fleche.GetComponent<ParticleSystem>().startColor = gameObject.GetComponent<Light>().color;//on la même couleur que le joueur sur la flêche de TP
         dep = gameObject.GetComponent<deplacement_script>().dep;//On récupère la variable publique de la direction du joueur
         RaycastHit hit;//on instantie un raycast qui permettra de détecter les murs devant le joueur
         canJump = true;
@@ -78,8 +77,8 @@ public class Use_Item : MonoBehaviour {
                 item_tag.tag = "Untagged";
             }
                 
-
-            if (item_tag.tag.Contains("wall")&& dep != "stop" )
+            //Selon la direction ou va le joueur posera le mur à l'opposé
+            if (item_tag.tag.Contains("wall")&& dep != "stop" )//On vérifie que le joueur contient une bombe ou n'est pas arrété
             {
                 if (dep == "left")
                     placeWall = new Vector3(gameObject.transform.position.x + distWall, gameObject.transform.position.y, gameObject.transform.position.z);
@@ -94,7 +93,7 @@ public class Use_Item : MonoBehaviour {
                 item_tag.tag = "Untagged";
             }
             //Si le joueur a l'item de saut et que la variable canJump est à true, alors le téléporte à la distance de saut rentré en variable public
-            //et dans la direction dans laquelle il se déplace
+            //et dans la direction dans laquelle il se déplace sauf si il est arrété
             if (item_tag.tag.Contains("jump") && canJump && dep != "stop")
             {
                 GameObject.Instantiate(tpEffect, gameObject.transform.position, Quaternion.Euler(90,0,0));

@@ -6,21 +6,22 @@ using UnityEngine;
 public class EndGameCollider : MonoBehaviour {
     //initialisation des variables
     public GUIStyle customStyle;
-    public int finalTime;
+    public int finalTime;//temps public pour que le niveau se stoppe quand tout les joueurs sont arrivés
 
-    private float realtime;
-    private string[] list;
-    private List<string> display;
+    private float realtime;//temps reel
+    private string[] list;//list qui contiendra les phrases d'ordre de victoire
+    private List<string> display;//les phrases qui seront affiché
     private string tempName;
-    private int classement;
+    private int classement;//numéro de classement qui sera incrémenté à chaque fois qu'un jour atteind l'arrivée
 
-    private bool finDuGame;
+    private bool finDuGame;//Quand tout les joueurs ont fini le niveau
     private GameObject exit_door;
     private TextMesh final_text;
 
     // Use this for initialization
     void Start ()
     {
+        //Initialisation des différentes variable et récupération des composants utiles
         finDuGame = false;
         realtime = finalTime;
         classement = 0;
@@ -29,7 +30,7 @@ public class EndGameCollider : MonoBehaviour {
         final_text.text = "";
         exit_door = GameObject.Find("Exit_Door");
         exit_door.SetActive(false);
-
+        //On initialise les futurs phrases de victoire
         for (int i = 0; i < list.Length; i++)
         {
             list[i] = " est numéro " + (i + 1) + ".";
@@ -49,7 +50,7 @@ public class EndGameCollider : MonoBehaviour {
 
         }
 	}
-
+    //Pour afficher la liste des gagnants au fur et à mesure qu'il finisse le niveau
     void OnGUI()
     {
         int dep = 0;
@@ -59,7 +60,7 @@ public class EndGameCollider : MonoBehaviour {
             dep += 20;
         }    
     }
-
+    //Quand un joueur arrive dans la zone d'arrivé
     private void OnTriggerEnter(Collider c)
     {
         tempName = c.gameObject.GetComponent<PhotonView>().owner.NickName;

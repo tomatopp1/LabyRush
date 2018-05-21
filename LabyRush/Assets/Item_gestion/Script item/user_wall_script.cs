@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//script à appliquer sur l'item mur qui sera instantié
+//par Nicolas FINOUX
 public class user_wall_script : MonoBehaviour {
 
     //public

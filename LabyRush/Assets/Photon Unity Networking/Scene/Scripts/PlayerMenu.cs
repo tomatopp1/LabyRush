@@ -8,7 +8,8 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using ExitGames.Client.Photon;
-
+//Script de base de Unity Photon
+//Ajout UI +LOGO par Nicolas FINOUX
 public class PlayerMenu : MonoBehaviour
 {
     public GUISkin Skin;
@@ -229,7 +230,7 @@ public class PlayerMenu : MonoBehaviour
 
                 GUILayout.EndScrollView();
             }
-
+            //Ajout par NICOLAS FINOUX////////////////////////////////////////////////////////////////////////
             // Options: nombre de joueur
             GUILayout.BeginHorizontal();
             GUILayout.Label("Options", GUILayout.Width(100));
@@ -247,7 +248,7 @@ public class PlayerMenu : MonoBehaviour
                 display_menu = false;
             }
             GUILayout.EndHorizontal();
-
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
             GUILayout.EndArea();
         }
     }
