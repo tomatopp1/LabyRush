@@ -165,6 +165,7 @@ public class NewWallController : MonoBehaviour
     }
 
     //Partie ajouté par NICOLAS FINOUX
+    //Génération des items
     public void PopItem()
     {
         int index;
@@ -175,16 +176,57 @@ public class NewWallController : MonoBehaviour
         index = RandItem.Next(0, itemArray.Length);
 
         PhotonNetwork.Instantiate(itemArray[index].name, new Vector3(RandItem.Next((int)minSpawn.x, (int)maxSpawn.x), 0, Generator.Next((int)minSpawn.z, (int)maxSpawn.z)), Quaternion.identity, 0);
-
     }
-
     public void InitAllItem()
     {
+
         for (int i = 0; i < nbItem; i++)
         {
             PopItem();
         }
     }
+
+    //Version 2
+    public Vector3 genCoord(string pos)
+    {
+        Vector3 coord = new Vector3(0,0,0);
+        
+        Vector3 minSpawn = spawnZone.GetComponent<MeshCollider>().bounds.min; //renvoi les valeurs min du collider
+        Vector3 maxSpawn = spawnZone.GetComponent<MeshCollider>().bounds.max; //renvoi les valeurs max du collider
+        //valeur en x
+        int xmin = (int)minSpawn.x;
+        int xmax = (int)maxSpawn.x;
+        int xmid = (int)((xmax - xmin)/2);
+        //valeur en z
+        int zmin = (int)minSpawn.z;
+        int zmax = (int)maxSpawn.z;
+        int zmid = (int)((zmax - zmin)/2);
+
+        if (pos == "BG") coord = new Vector3(RandItem.Next((int)xmin, (int)xmid), 0, Generator.Next((int)zmin, (int)zmid));
+        else if (pos == "HG") coord = new Vector3(RandItem.Next((int)xmid, (int)xmax), 0, Generator.Next((int)zmin, (int)zmid));
+        else if (pos == "BD") coord = new Vector3(RandItem.Next((int)xmin, (int)xmid), 0, Generator.Next((int)zmid, (int)zmax));
+        else if (pos == "HD") coord = new Vector3(RandItem.Next((int)xmid, (int)xmax), 0, Generator.Next((int)zmid, (int)zmax));
+        else coord = new Vector3(RandItem.Next((int)minSpawn.x, (int)maxSpawn.x), 0, Generator.Next((int)minSpawn.z, (int)maxSpawn.z));
+
+        return coord;
+    }
+
+    public void PopIni()
+    {
+        
+        int sep = (int)(nbItem / 4);
+
+        for (int i = 0; i < nbItem; i++)
+        {
+            int index = RandItem.Next(0, itemArray.Length);
+
+            if (i>=0 && i< sep) PhotonNetwork.Instantiate(itemArray[index].name, genCoord("BG"), Quaternion.identity, 0);
+            if (i >= sep && i < 2*sep) PhotonNetwork.Instantiate(itemArray[index].name, genCoord("HG"), Quaternion.identity, 0);
+            if (i >= 2*sep && i < 3 * sep) PhotonNetwork.Instantiate(itemArray[index].name, genCoord("BD"), Quaternion.identity, 0);
+            if (i >= 3 * sep && i < 4 * sep) PhotonNetwork.Instantiate(itemArray[index].name, genCoord("HD"), Quaternion.identity, 0);
+        }
+    }
+
 }
 
 
