@@ -417,7 +417,7 @@ MonoBehaviour:
   arrItem:
   - {fileID: 1684523410030642, guid: a82ce586c83e7e341a0ab2d7c4f78a0f, type: 2}
   - {fileID: 1109309563091326, guid: f14df7e84f19cdb4d9230a7bc44221bc, type: 2}
-  fleche: {fileID: 1897634131942066, guid: 4c2301265dfcf4c46838f2d541b7ce65, type: 2}
+  fleche: {fileID: 1607619621139238, guid: 8ca89cbaed71ee84599ac2699b889297, type: 2}
   distJump: 1
   distWall: 0.5
 --- !u!114 &114368064367037244
