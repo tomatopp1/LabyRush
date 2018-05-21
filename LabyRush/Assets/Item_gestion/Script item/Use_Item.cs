@@ -22,6 +22,7 @@ public class Use_Item : MonoBehaviour {
     {
         item_tag = gameObject.transform.GetChild(0);//on récupère l'item fils du player contenant le tag de l'item
         fleche = GameObject.Instantiate(fleche, new Vector3 (0,0,-1000), Quaternion.identity);//On instantie la fleche loin.
+        fleche.GetComponent<ParticleSystem>().startColor = gameObject.GetComponent<Light>().color;//on prend la même couleur que le joueur
     }
 	
 	// Update is called once per frame
