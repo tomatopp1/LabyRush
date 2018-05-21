@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Script de détection des joueurs à l'arrivé et de la fin de partie, à placer sur la zone de fin du niveau contenant le trigger
+//par Nicolas FINOUX
 public class EndGameCollider : MonoBehaviour {
     //initialisation des variables
     public GUIStyle customStyle;
@@ -63,6 +64,7 @@ public class EndGameCollider : MonoBehaviour {
     {
         tempName = c.gameObject.GetComponent<PhotonView>().owner.NickName;
         if (c.gameObject.GetComponent<PhotonView>().isMine) exit_door.SetActive(true);
+        c.gameObject.transform.GetChild(0).tag = "Untagged";
         list[classement] = tempName + list[classement];
         Debug.Log(list[classement]);
         display.Add(list[classement]);
