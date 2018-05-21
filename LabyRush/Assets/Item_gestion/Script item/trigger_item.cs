@@ -5,13 +5,13 @@ using UnityEngine;
 //Par NICOLAS FINOUX
 public class trigger_item : MonoBehaviour {
 
-    private WallController wc;//script de génération du labyrinthe et du placement des items sur la map
+    private NewWallController wc;//script de génération du labyrinthe et du placement des items sur la map
 
     // Use this for initialization
     void Start ()
     {
         //On récupère le script de génération du labyrinthe pour avoir accès à la fonction d'instantiation des items sur la map
-        wc = GameObject.Find("Wall").GetComponent<WallController>();
+        wc = GameObject.Find("Wall").GetComponent<NewWallController>();
 	}
 
     public void OnTriggerEnter(Collider c)
