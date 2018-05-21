@@ -29,6 +29,7 @@ public class PlayerMenu : MonoBehaviour
     private string errorDialog;
     private double timeToClearDialog;
 
+    private GameObject txt_credit;
     private GameObject lum;
     private float realtime;
     private bool display_menu;
@@ -39,6 +40,8 @@ public class PlayerMenu : MonoBehaviour
     {
         lum = GameObject.Find("light_credit");
         lum.transform.localPosition = new Vector3(0, 60, 51);
+        txt_credit = GameObject.Find("text_credit");
+        txt_credit.SetActive(false);
         display_menu = false;
     }
 
@@ -50,9 +53,13 @@ public class PlayerMenu : MonoBehaviour
         if (lum.transform.localPosition.y <= -60)
         {
             lum.transform.localPosition = new Vector3(0, 60, 51);
-            display_menu = true;
+            if(txt_credit.GetActive() == false) display_menu = true;
         }
-        if(Input.GetKey(KeyCode.Escape)) display_menu = true;
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            display_menu = true;
+            txt_credit.SetActive(false);
+        }
     }
 
     public string ErrorDialog
@@ -230,7 +237,15 @@ public class PlayerMenu : MonoBehaviour
             GUILayout.Label("number of player:", GUILayout.Width(100));
 
             MaxPlay = GUILayout.SelectionGrid(MaxPlay, new string[] { "1", "2", "3", "4" }, 4);
-            Debug.Log(MaxPlay);
+            //Debug.Log(MaxPlay);
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("Credit", GUILayout.Width(100)))
+            {
+                txt_credit.SetActive(true);
+                display_menu = false;
+            }
             GUILayout.EndHorizontal();
 
             GUILayout.EndArea();
