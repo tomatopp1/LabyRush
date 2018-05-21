@@ -96,7 +96,7 @@ Transform:
   m_GameObject: {fileID: 1396721630590850}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -4.77, y: 0.715, z: 1.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 4096064920855808}
   m_RootOrder: 1
@@ -329,7 +329,7 @@ TextMesh:
   m_Anchor: 4
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 0
+  m_FontSize: 150
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
@@ -585,4 +585,4 @@ MonoBehaviour:
   bomb: {fileID: 2800000, guid: 52a21236b86ecd14abd7a87118684ba7, type: 3}
   wall: {fileID: 2800000, guid: 4e043ff2d17ce7f418258d46c31a98a0, type: 3}
   jump: {fileID: 2800000, guid: bb7c400e8f10d6240b816c51cce995e2, type: 3}
-  empty: {fileID: 2800000, guid: c3fcf89fb2ad67b4cbfbebbe0e2edd3d, type: 3}
+  empty: {fileID: 2800000, guid: 3b2ebb8bac7ad034a8edd65a4bc839f3, type: 3}

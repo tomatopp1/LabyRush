@@ -29,6 +29,7 @@ public class Use_Item : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        fleche.GetComponent<ParticleSystem>().startColor = gameObject.GetComponent<Light>().color;//on prend la même couleur que le joueur
         dep = gameObject.GetComponent<deplacement_script>().dep;//On récupère la variable publique de la direction du joueur
         RaycastHit hit;//on instantie un raycast qui permettra de détecter les murs devant le joueur
         canJump = true;
