@@ -14,6 +14,7 @@ public class deplacement_script : MonoBehaviour {
     private int boost;
     private float timeBoost;
     private bool pause;//si le joueur a décidé d'arreter de bouger en appuyant sur espace
+    private Transform pseudo;
     private PhotonView Pv;//script Photon View
     private deplacement_script ds;//script de déplacement
     private Use_Item Ui;//script des items
@@ -24,6 +25,18 @@ public class deplacement_script : MonoBehaviour {
         Pv = gameObject.GetComponent<PhotonView>(); 
         ds = gameObject.GetComponent<deplacement_script>();
         Ui = gameObject.GetComponent<Use_Item>();
+        pseudo = gameObject.transform.GetChild(1);
+        if(Pv.isMine == false)
+        {
+            pseudo.GetComponent<TextMesh>().text = Pv.owner.NickName;
+            pseudo.GetComponent<TextMesh>().color = gameObject.GetComponent<Light>().color;
+
+        }
+        else
+        {
+            pseudo.GetComponent<TextMesh>().text = "";
+        }
+        
         //On vérifie avec la avriable isMine si le sur lequel est associé le script 
         //est bien celui entrain de jouer et on désactive les scripts si ce n'est pas le cas
         ds.enabled = Pv.isMine;

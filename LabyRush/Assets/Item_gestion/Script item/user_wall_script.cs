@@ -6,6 +6,7 @@ public class user_wall_script : MonoBehaviour {
 
     //public
     public int life_Time; //durée de vie de la bombe
+    public GameObject destroyEffect;
 
     //Privée
     private float realTime; //temps reel de la bombe
@@ -56,9 +57,10 @@ public class user_wall_script : MonoBehaviour {
         else
             Clignotement(true);
 
-        //destruction de la bombe
+        //destruction du mur
         if (realTime > life_Time)
         {
+            GameObject.Instantiate(destroyEffect, gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 

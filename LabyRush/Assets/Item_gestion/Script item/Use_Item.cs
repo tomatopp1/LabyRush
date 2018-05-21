@@ -76,7 +76,7 @@ public class Use_Item : MonoBehaviour {
             }
                 
 
-            if (item_tag.tag.Contains("wall"))
+            if (item_tag.tag.Contains("wall")&& dep != "stop" )
             {
                 if (dep == "left")
                     placeWall = new Vector3(gameObject.transform.position.x + distWall, gameObject.transform.position.y, gameObject.transform.position.z);
@@ -92,7 +92,7 @@ public class Use_Item : MonoBehaviour {
             }
             //Si le joueur a l'item de saut et que la variable canJump est à true, alors le téléporte à la distance de saut rentré en variable public
             //et dans la direction dans laquelle il se déplace
-            if (item_tag.tag.Contains("jump") && canJump)
+            if (item_tag.tag.Contains("jump") && canJump && dep != "stop")
             {
                
                 if (dep == "left")
