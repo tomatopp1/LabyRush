@@ -261,24 +261,24 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2
-  m_Range: 4
+  m_Range: 6
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 0.1
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294934527
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -417,7 +417,7 @@ MonoBehaviour:
   arrItem:
   - {fileID: 1684523410030642, guid: a82ce586c83e7e341a0ab2d7c4f78a0f, type: 2}
   - {fileID: 1109309563091326, guid: f14df7e84f19cdb4d9230a7bc44221bc, type: 2}
-  fleche: {fileID: 1897634131942066, guid: 4c2301265dfcf4c46838f2d541b7ce65, type: 2}
+  fleche: {fileID: 1607619621139238, guid: 8ca89cbaed71ee84599ac2699b889297, type: 2}
   distJump: 1
   distWall: 0.5
 --- !u!114 &114368064367037244
