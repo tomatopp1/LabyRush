@@ -11,7 +11,8 @@ public class Use_Item : MonoBehaviour {
     public GameObject fleche;//gameObject fleche
     public float distJump;//distance de Téléportation vers la direction du Player
     public float distWall;//distance ou sera instancié l'item mur par rapport au joueur
-    
+    public GameObject tpEffect;//effet de téléportation
+
     //Private
     private string dep;//la direction du joueur
     private Vector3 placeWall;//position du mur
@@ -95,7 +96,8 @@ public class Use_Item : MonoBehaviour {
             //et dans la direction dans laquelle il se déplace
             if (item_tag.tag.Contains("jump") && canJump && dep != "stop")
             {
-               
+                GameObject.Instantiate(tpEffect, gameObject.transform.position, Quaternion.Euler(90,0,0));
+
                 if (dep == "left")
                     transform.Translate(new Vector3(-distJump, 0, 0));
                 if (dep == "right")
