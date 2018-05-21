@@ -19,6 +19,9 @@ public class NewWallController : MonoBehaviour
     private System.Random RandItem;
     private int seed;
 
+    //Ajout NicoT
+    public Material materiauMur;
+
     //Quand la seed change elle est synchronisé à l'ensemble des clients
     void OnPhotonCustomRoomPropertiesChanged(Hashtable propertiesThatChanged)
     {
@@ -148,9 +151,14 @@ public class NewWallController : MonoBehaviour
 
                 wallArray[init] = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-                wallArray[init].transform.position = new Vector3(130f - (list[0] + list[2])* 5, 5f, 134.5f - (list[1] + list[3]) * 5) / 10;
+                wallArray[init].transform.position = new Vector3(130f - (list[0] + list[2])* 5, 4f, 134.5f - (list[1] + list[3]) * 5) / 10; //placement du mur dans l'espace
                 wallArray[init].transform.localScale = cubeScale / 10;
                 wallArray[init].transform.SetParent(gameObject.transform);
+
+                //affectation du materiau
+                wallArray[init].gameObject.AddComponent<Renderer>();
+                wallArray[init].GetComponent<Renderer>().material = materiauMur;
+                wallArray[init].gameObject.AddComponent<ReCalcCubeTexture>();
 
                 //Surement à supprimer dans cette partie
                 wallArray[init].AddComponent<Rigidbody>();
